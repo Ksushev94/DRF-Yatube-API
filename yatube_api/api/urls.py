@@ -11,6 +11,8 @@ router.register('follow', FollowViewSet, basename='follow')
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('', include('djoser.urls')),
+    path('', include('djoser.urls.jwt')),
     path('posts/<int:post_id>/comments/',
          CommentViewSet.as_view({'get': 'list', 'post': 'create'})),
     path('posts/<int:post_id>/comments/<int:pk>/',
